@@ -8,6 +8,7 @@ import { jwtVerify, SignJWT } from "jose";
 import { SortTiles } from "../components/SortTiles";
 import { Navbar } from "../components/Navbar";
 import { updateGistWithAchievement } from "../utils/UpdateGist";
+import { SocialLinksBar } from "../components/SocialLinksBar";
 
 export const HomePage = () => {
   const [sortOption, setSortOption] = useState("default");
@@ -175,6 +176,7 @@ export const HomePage = () => {
         </p>
         <SortTiles sortOption={sortOption}></SortTiles>
       </div>
+      <SocialLinksBar />
       <Snackbar
         open={notificationOpen}
         autoHideDuration={3000}

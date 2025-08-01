@@ -79,6 +79,18 @@ export const Navbar = () => {
             >
               Feedback
             </MenuItem>
+            <MenuItem
+              onClick={() => window.open("https://www.buymeacoffee.com/yourusername", "_blank")}
+              sx={{
+                "&:hover": {
+                  opacity: 0.7,
+                  transform: "scale(0.95)",
+                },
+                transition: "all 0.2s ease",
+              }}
+            >
+              Buy Me a Coffee
+            </MenuItem>
           </Menu>
         </>
       ) : (
@@ -86,6 +98,14 @@ export const Navbar = () => {
           <h2 className="tile-title" onClick={() => navigate("/achievements")}>Achievements</h2>
           <h2 className="tile-title" onClick={() => navigate("/feedback")}>Feedback</h2>
           <h2 className="tile-title glow" onClick={() => navigate("/socials")}>Socials</h2>
+          <a
+            href="https://www.buymeacoffee.com/yourusername"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="buy-coffee-button glow"
+          >
+            ☕ Buy Me a Coffee
+          </a>
         </div>
       )}
     </div>
