@@ -313,6 +313,7 @@
 }
 
 .name-form-iframe {
+    display: none;
     position: fixed;
     bottom: 20px;
     left: 20px;
@@ -351,6 +352,7 @@
         justify-content: center;
     }
     .name-form-iframe {
+        display: none;
         right: auto;
         left: 50%;
         transform: translateX(-50%);
