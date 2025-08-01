@@ -1,0 +1,93 @@
+.time-input {
+    width: 50px;
+    height: 30px;
+    border: 1px solid white;
+    text-align: center;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid rgba(52, 191, 45, 0.821);
+    font-family: monospace, sans-serif;
+}
+
+.time-box {
+    border: 1px solid white;
+    text-align: center;
+    font-size: 35px;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: monospace, sans-serif;
+}
+
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Hide number input arrows for Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.timer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    width: 350px;
+    background: #111;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+    padding: 20px;
+}
+
+.timer-display {
+    font-family: "Courier New", monospace;
+    font-size: 3rem;
+    color: #0f0; /* Neon green */
+    text-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
+    background: black;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.timer-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.timer-buttons button {
+    background: #222;
+    color: #0f0;
+    font-size: 1rem;
+    padding: 10px 15px;
+    border: 2px solid #0f0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.timer-buttons button:hover {
+    background: #0f0;
+    color: #000;
+}
+
+.time-units {
+    display: flex;
+    flex-direction: row;
+}
+
+.time-unit {
+    width: 92px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+    color: #0f0;
+    font-size: 14px;
+}

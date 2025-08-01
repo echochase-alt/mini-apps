@@ -1,0 +1,369 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
+
+/* Navbar */
+.navbar {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(135deg, #57829a, #6ca4c4); /* Slate blue gradient */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 2;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.tile-titles {
+    font-size: 20px;
+    margin-right: 50px;
+    flex: 80%;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.title {
+    font-size: 32px;
+    flex: 20%;
+    margin-left: 30px;
+    color: #e1f4f3;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+}
+
+.tile-title {
+    font-size: 20px;
+    margin: 10px;
+    color: #e0dcdc;
+    transition: opacity 0.2s ease, text-shadow 0.2s ease;
+}
+
+/* Hover behavior for title links */
+.tile-title:hover,
+.title:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+/* Optional: Highlight the active tab */
+.tile-title.active {
+    color: #ffffff;
+    text-shadow: 0 0 10px #9f84ff;
+}
+
+
+.glow {
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+  text-decoration: none;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #1d8ba1, 0 0 40px #325ee0, 0 0 50px #29a4d1, 0 0 60px #18af98, 0 0 70px #2890b6;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #b2a122, 0 0 40px #c9b83b, 0 0 50px #ffff4d, 0 0 60px #fff64d, 0 0 70px #fff04d, 0 0 80px #ffd84d;
+  }
+}
+
+.tile {
+    border: 2px solid white;
+    border-radius: 20px;
+    width: 215px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    margin: 10px;
+}
+
+.tile:hover {
+    cursor: pointer;
+    border: 2px solid gray;
+    background-color: #636161d0;
+    fill-opacity: 50%;
+}
+
+.tile-list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.scoreboard-logo {
+    width: 170px;
+    height: 150px;
+    background-image: url("../assets/scoreboard-logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.spinner-wheel-logo {
+    width: 230px;
+    height: 190px;
+    background-image: url("../assets/spinner-wheel-logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.base64-logo {
+    width: 210px;
+    height: 170px;
+    background-image: url("../assets/base64-logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.timer-logo {
+    width: 210px;
+    height: 170px;
+    background-image: url("../assets/timer-logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.rng-logo {
+    width: 210px;
+    height: 170px;
+    background-image: url("../assets/rng-logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.date-calculator-logo {
+    width: 210px;
+    height: 170px;
+    background-image: url("../assets/date-calculator-logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.text-converter-logo {
+    width: 50px;
+    height: 80px;
+    background-image: url("../assets/text-converter-logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.matchups-logo {
+    width: 80px;
+    height: 150px;
+    background-image: url("../assets/matchups-logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.dice-logo {
+    width: 150px;
+    height: 150px;
+    background-image: url("../assets/dice/dice6.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.coin-logo {
+    width: 150px;
+    height: 150px;
+    background-image: url("../assets/coins/derp-heads.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.lorem-ipsum-logo {
+    width: 200px;
+    height: 200px;
+    background-image: url("../assets/lorem-ipsum-logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.operations-logo {
+    width: 150px;
+    height: 150px;
+    background-image: url("../assets/operations-logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.pw-checker-logo {
+    width: 200px;
+    height: 200px;
+    background-image: url("../assets/pw-checker-logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.memory-logo {
+    width: 150px;
+    height: 150px;
+    background-image: url("../assets/memory-logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.tictactoe-logo {
+    width: 170px;
+    height: 170px;
+    background-image: url("../assets/tictactoe-logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.stt-logo {
+    width: 150px;
+    height: 150px;
+    background-image: url("../assets/microphone.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.card-logo {
+    width: 150px;
+    height: 150px;
+    background-image: url("../assets/svg_playing_cards/fronts/hearts_ace.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.db-logo {
+    width: 200px;
+    height: 200px;
+    background-image: url("../assets/db-logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.sort-container {
+    top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    position: relative;
+}
+
+.sort-container label {
+    font-size: 18px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.sort-container select {
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #333;
+    cursor: pointer;
+}
+
+.category-section {
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.category-divider {
+    width: 80%;
+    border: 1px solid white;
+    margin: 10px auto;
+}
+
+.start {
+    margin-top: 30px;
+}
+
+.name-form-iframe {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 325px;
+    height: 155px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px black;
+    z-index: 10;
+    background-color: #242424;
+}
+
+.feedback {
+    position: fixed;
+    bottom: 30px;
+    right: 50px;
+    z-index: 20;
+    font-size: large;
+    color: white;
+    opacity: 0.8;
+}
+
+.feedback:hover {
+    cursor: pointer;
+    opacity: 1;
+    text-decoration-line: underline;
+}
+
+@media only screen and (max-width: 600px) {
+    .tile-list {
+        position: relative;
+        top: 20px;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .name-form-iframe {
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 70px;
+    }
+    .feedback {
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 10px;
+    }
+    .title {
+        flex: 1;
+        position: relative;
+    }
+}

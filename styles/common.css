@@ -1,0 +1,51 @@
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: black;
+    width: 500px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+.feedback-frame {
+    width: 700px;
+    height: 325px;
+    border: none;
+    border-radius: 10px;
+    outline: 1px solid white;
+    overflow: hidden;
+    max-width: 90vw;
+    background-color: transparent;
+}
+
+.horizontal-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+  
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.toast {
+    position: absolute;
+    top: -35px;
+    right: -10px;
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 50;
+}

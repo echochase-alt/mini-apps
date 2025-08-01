@@ -1,0 +1,88 @@
+.coin-container {
+    width: 90vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.coin-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flipping-message {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.circular-button {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.display:hover {
+    border: 1px solid white;
+    cursor: default;
+}
+
+.display-toggle {
+    border: 2px solid white;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.coin {
+    width: 100px;
+    height: 100px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.derp-tails {
+    background-image: url("../assets/coins/derp-tails.png");
+}
+
+.derp-heads, .derp-none {
+    background-image: url("../assets/coins/derp-heads.png");
+}
+
+.horizontal-line {
+    width: 90vw;
+    margin-top: 30px;
+}
+
+.aus-heads, .aus-none {
+    background-image: url("../assets/coins/aus-heads.png");
+}
+
+.aus-tails {
+    background-image: url("../assets/coins/aus-tails.png");
+}
+
+.skin-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    position: relative;
+}
+
+.coin-select {
+    width: 110px;
+    height: 35px;
+    font-size: 15.5px;
+}

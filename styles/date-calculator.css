@@ -1,0 +1,51 @@
+#direction-select {
+    width: 50px;
+    height: 20px;
+}
+
+#days-box {
+    text-align: center;
+    width: 50px;
+    height: 20px;
+    font-size: 20px;
+}
+
+.grey {
+    opacity: 90%;
+    color: grey;
+    min-width: 190px;
+}
+
+.normal {
+    opacity: 100%;
+    color: white;
+    min-width: 190px;
+}
+
+
+@media (prefers-color-scheme: dark) {
+    .custom-select .MuiOutlinedInput-notchedOutline {
+        border-color: white !important;
+    }
+    
+    .custom-select .MuiInputLabel-root {
+        color: white !important;
+    }
+    
+    .custom-select .MuiSelect-root {
+        color: white !important;
+    }
+    
+    .custom-select .MuiSelect-icon {
+        color: white !important;
+    }
+    
+    .custom-select .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+        border-color: white !important;
+    }
+    
+    .custom-select .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+        border-color: white !important;
+    }
+}
+  

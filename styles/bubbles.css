@@ -1,0 +1,59 @@
+
+.bubbles {
+	margin-top: 70px;
+	position: relative;
+	height: 80vh;
+	width: calc(100vw - 200px);
+    z-index: -1;
+}
+
+.bubble {
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	animation: float 4.5s ease-in-out infinite;
+	background: radial-gradient(
+		circle at 65% 35%,
+		#ffe 5px,
+		white 15%,
+		white 50%,
+		white 100%
+	);
+	box-shadow: inset 0 -20px 30px #fff, inset 40px 0 46px #eaf5fc,
+	inset 58px 0px 60px #c2d8fe, inset -8px -30px 100px #fde9ea,
+	inset 0 20px 110px #fde9ea, 0 0 90px #fff;
+    z-index: -1;
+}
+
+.bubble:hover {
+	opacity: 80%;
+	cursor: pointer;
+}
+
+.background-bubble {
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+    animation: float 10s infinite;
+    opacity: 20%;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 500px) {
+	.bubbles {
+		width: 100vw;
+	}
+}

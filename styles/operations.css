@@ -1,0 +1,90 @@
+.menu-button {
+    width: 175px;
+    padding: 10px;
+    font-size: 16px;
+    margin: 5px;
+}
+
+.operation-button {
+    margin: 0 5px;
+    font-size: 18px;
+    padding: 10px 15px;
+}
+
+.backspace-button {
+    max-width: 190px;
+    font-size: 16px;
+    padding: 10px 15px;
+}
+
+.game-buttons {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+}
+
+.duplicator-frame {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #f0f8ff;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 28px;
+    line-height: 60px;
+    text-align: center;
+    user-select: none;
+    transition: 0.2s;
+}
+
+.duplicator-frame:hover {
+    background-color: #e0f0ff;
+}
+
+.duplicator-count {
+    position: absolute;
+    bottom: -8px;
+    right: -8px;
+    height: 25px;
+    width: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E32636;
+    color: white;
+    font-size: 14px;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+.duplicated-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background-color: #FFA500;
+    color: white;
+    font-size: 12px;
+    padding: 3px 6px;
+    border-radius: 50%;
+    font-weight: bold;
+    z-index: 1;
+}
+
+.number-button-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.number-button {
+    width: 60px;
+    height: 60px;
+    font-size: 20px;
+    background-color: #6e9dad;
+    border-radius: 10px;
+    border: 2px solid white;
+    cursor: pointer;
+    transition: 0.2s;
+}
