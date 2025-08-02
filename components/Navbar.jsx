@@ -80,7 +80,7 @@ export const Navbar = () => {
               Feedback
             </MenuItem>
             <MenuItem
-              onClick={() => window.open("https://www.buymeacoffee.com/yourusername", "_blank")}
+              onClick={() => window.open("https://www.buymeacoffee.com/echocodez", "_blank")}
               sx={{
                 "&:hover": {
                   opacity: 0.7,
@@ -99,7 +99,7 @@ export const Navbar = () => {
           <h2 className="tile-title" onClick={() => navigate("/feedback")}>Feedback</h2>
           <h2 className="tile-title glow" onClick={() => navigate("/socials")}>Socials</h2>
           <a
-            href="https://www.buymeacoffee.com/yourusername"
+            href="https://www.buymeacoffee.com/echocodez"
             target="_blank"
             rel="noopener noreferrer"
             className="buy-coffee-button glow"
