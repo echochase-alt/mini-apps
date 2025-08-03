@@ -9,6 +9,7 @@ import { SortTiles } from "../components/SortTiles";
 import { Navbar } from "../components/Navbar";
 import { updateGistWithAchievement } from "../utils/UpdateGist";
 import { SocialLinksBar } from "../components/SocialLinksBar";
+import { VisitorCounter } from "../components/VisitorCounter";
 
 export const HomePage = () => {
   const [sortOption, setSortOption] = useState("default");
@@ -201,6 +202,8 @@ export const HomePage = () => {
           }
         />
       </Snackbar>
+      <br />
+      <VisitorCounter />
     </div>
   );
 };
