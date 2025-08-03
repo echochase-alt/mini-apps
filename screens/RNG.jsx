@@ -1,8 +1,17 @@
 import { useState } from "react";
-import "../styles/RNG.css";
 import { useNavigate } from "react-router-dom";
-import { TextField, useMediaQuery } from "@mui/material";
+import {
+  TextField,
+  Button,
+  Typography,
+  useMediaQuery,
+  Box,
+  Stack,
+  Chip,
+} from "@mui/material";
+import ClearIcon from "@mui/icons-material/Clear";
 import { Bubbles } from "../components/Bubbles";
+import "../styles/RNG.css";
 
 export const RNG = () => {
   const [start, setStart] = useState(0);
@@ -13,33 +22,41 @@ export const RNG = () => {
   const [open, setOpen] = useState(false);
   const [customArray, setCustomArray] = useState([]);
   const [newNumber, setNewNumber] = useState("");
-  const navigate = useNavigate();
   const [error, setError] = useState("");
+  const navigate = useNavigate();
   const isMobile = useMediaQuery("(max-width:600px)");
 
+  const primaryColor = "#15719cff";
+  const textColor = "#e0e0e0";
+
   const getRandomNumber = () => {
-    if (customise) {
-      setGenerated(true);
-      setNumber(customArray[Math.floor(Math.random() * customArray.length)]);
-      return;
-    }
     setGenerated(true);
-    setNumber(Math.floor(Math.random() * (end - start + 1) + Number(start)));
+    if (customise) {
+      const result = customArray[Math.floor(Math.random() * customArray.length)];
+      setNumber(result);
+    } else {
+      const result = Math.floor(Math.random() * (end - start + 1)) + Number(start);
+      setNumber(result);
+    }
   };
 
   const addNewItem = (e) => {
     e.preventDefault();
     if (!newNumber.trim()) return;
-    if (customArray.length + newNumber.split(",").length > 100) {
-      setError("full");
-      return;
-    }
+
     const newItems = newNumber
       .split(",")
       .map((item) => item.trim())
       .filter((item) => item);
+
+    if (customArray.length + newItems.length > 100) {
+      setError("full");
+      return;
+    }
+
     setCustomArray((prev) => [...prev, ...newItems]);
     setNewNumber("");
+    setError("");
   };
 
   const openCustom = () => {
@@ -53,136 +70,217 @@ export const RNG = () => {
     setGenerated(false);
   };
 
-  const handleEdit = (newNum) => {
-    setError("");
-    setNewNumber(newNum);
-  }
-  
   const deleteItem = (index) => {
     setCustomArray((prev) => prev.filter((_, i) => i !== index));
   };
 
   return (
-    <div className="center">
-      <Bubbles colour="rgb(195, 138, 138)"></Bubbles>
-      <h1 style={{ fontSize: isMobile ? "38px" : "48px" }}>Random Number Generator</h1>
+    <Box className="center" p={3}>
+      <Bubbles colour="rgb(195, 138, 138)" />
+      <Typography
+        variant={isMobile ? "h4" : "h3"}
+        textAlign="center"
+        mb={3}
+        color={textColor}
+      >
+        Random Generator
+      </Typography>
 
-      <div className={isMobile ? "center" : "horizontal-box"}>
-        <button
+      <Stack
+        direction={isMobile ? "column" : "row"}
+        justifyContent="center"
+        spacing={2}
+        mb={4}
+      >
+        <Button
+          variant={!customise ? "contained" : "outlined"}
           onClick={closeCustom}
-          className={!customise ? "normal" : "grey"}
+          sx={{
+            backgroundColor: !customise ? primaryColor : "transparent",
+            color: textColor,
+            borderColor: primaryColor,
+            ":hover": { backgroundColor: customise ? "#333" : primaryColor },
+          }}
         >
-          Random Number Generator
-        </button>
-        <button onClick={openCustom} className={customise ? "normal" : "grey"}>
-          Custom Item Picker
-        </button>
-      </div>
+          Number Generator
+        </Button>
+        <Button
+          variant={customise ? "contained" : "outlined"}
+          onClick={openCustom}
+          sx={{
+            backgroundColor: customise ? primaryColor : "transparent",
+            color: textColor,
+            borderColor: primaryColor,
+            ":hover": { backgroundColor: !customise ? "#333" : primaryColor },
+          }}
+        >
+          Custom Picker
+        </Button>
+      </Stack>
 
       {customise ? (
         open ? (
-          <div className="center">
-            <p>
-              Define a group to pick an item from.<br />
-              Click an item to remove it.
-            </p>
-            <div className="number-box">
-              {customArray.map((num, index) => (
-                <p className="number-frame" key={index} onClick={() => deleteItem(index)}>
-                  <span className="number-text">{num}</span>
-                  <span className="delete-cross">x</span>
-                </p>
+          <Box textAlign="center">
+            <Typography color={textColor} mb={2}>
+              Enter items to choose from. Click to delete.
+            </Typography>
+
+            <Box
+              display="flex"
+              flexWrap="wrap"
+              justifyContent="center"
+              gap={1}
+              mb={2}
+            >
+              {customArray.map((item, index) => (
+                <Chip
+                  key={index}
+                  label={item}
+                  onDelete={() => deleteItem(index)}
+                  sx={{ backgroundColor: "#333", color: textColor }}
+                  deleteIcon={<ClearIcon sx={{ color: "#E32636" }} />}
+                />
               ))}
-            </div>
-            <form onSubmit={addNewItem}>
+            </Box>
+
+            <Box component="form" onSubmit={addNewItem}>
               <TextField
-                placeholder="Add item or comma-separated list (press enter)"
+                placeholder="Add item(s), separated by commas"
                 variant="standard"
                 value={newNumber}
-                onChange={(e) => handleEdit(e.target.value)}
+                onChange={(e) => setNewNumber(e.target.value)}
                 fullWidth
                 sx={{
-                  input: { color: "white" },
+                  input: { color: textColor },
                   "& .MuiInputBase-input::placeholder": {
-                    color: "lightgray",
-                    opacity: 1,
-                    fontSize: "12.5px",
+                    color: "#aaa",
+                    fontSize: "14px",
                   },
                   "& .MuiInput-underline:before": {
-                    borderBottomColor: "lightgray",
+                    borderBottomColor: "gray",
                   },
                   "& .MuiInput-underline:hover:before": {
                     borderBottomColor: "white",
                   },
                   "& .MuiInput-underline:after": {
-                    borderBottomColor: "gray",
+                    borderBottomColor: primaryColor,
                   },
-                  width: "300px",
-                  padding: "5px",
+                  maxWidth: 400,
+                  mx: "auto",
                 }}
               />
-            </form>
-            <br />
-            {error === "full" && <p style={{ color: "#E32636" }}>Please enter a maximum of 100 items!</p>}
-            <div className={isMobile ? "center" : "horizontal-box"}>
-              <button onClick={() => setCustomArray([])}>Clear Group</button>
-              <button onClick={() => setOpen(false)}>Done</button>
-            </div>
-          </div>
+            </Box>
+
+            {error === "full" && (
+              <Typography color="#E32636" mt={1}>
+                Please enter a maximum of 100 items.
+              </Typography>
+            )}
+
+            <Stack
+              direction={isMobile ? "column" : "row"}
+              spacing={2}
+              justifyContent="center"
+              mt={3}
+            >
+              <Button onClick={() => setCustomArray([])} color="error">
+                Clear
+              </Button>
+              <Button
+                onClick={() => setOpen(false)}
+                variant="contained"
+                sx={{ backgroundColor: primaryColor, color: "white" }}
+              >
+                Done
+              </Button>
+            </Stack>
+          </Box>
         ) : (
-          <div className="center">
-            <div className="horizontal-box">
-              <h2>Pick a random item from your group:</h2>
-            </div>
-            <div className="number-box">
-              {customArray.length === 0 ? (
-                <p style={{ color: "#E32636" }}>
-                  You have not yet defined a custom set!
-                </p>
-              ) : (
-                customArray.map((num, index) => (
-                  <div style={ {fontSize: "1.5rem"} } key={index}>
-                    {num}
-                  </div>
-                ))
-              )}
-            </div>
-            {generated && <h1>{number}</h1>}
-            <div className="horizontal-box">
-              <button onClick={getRandomNumber}>Generate!</button>
-              <button onClick={() => setOpen(true)}>Edit set</button>
-            </div>
-          </div>
+          <Box textAlign="center">
+            <Typography variant="h6" mb={2} color={textColor}>
+              Pick a random item:
+            </Typography>
+            {customArray.length === 0 ? (
+              <Typography color="#E32636">
+                No custom items defined.
+              </Typography>
+            ) : (
+              <Typography variant="h3" mt={2} color={textColor}>
+                {generated && number}
+              </Typography>
+            )}
+            <Stack direction="row" spacing={2} justifyContent="center" mt={2}>
+              <Button
+                variant="contained"
+                onClick={getRandomNumber}
+                sx={{ backgroundColor: primaryColor, color: "white" }}
+              >
+                Generate
+              </Button>
+              <Button onClick={() => setOpen(true)} sx={{ color: textColor }}>
+                Edit Set
+              </Button>
+            </Stack>
+          </Box>
         )
       ) : (
-        <div className="center">
-          <div className="horizontal-box">
-            <h2>Generate a random number from</h2>
-            <input
-              className="rng-input"
+        <Box textAlign="center">
+          <Typography variant="h6" mb={2} color={textColor}>
+            Generate a number from:
+          </Typography>
+          <Stack
+            direction="row"
+            spacing={2}
+            justifyContent="center"
+            alignItems="center"
+          >
+            <TextField
               type="number"
+              variant="outlined"
+              size="small"
               value={start}
               onChange={(e) => setStart(Number(e.target.value))}
+              sx={{
+                width: "100px",
+                input: { color: textColor },
+                fieldset: { borderColor: "gray" },
+              }}
             />
-            <h2>to</h2>
-            <input
-              className="rng-input"
+            <Typography color={textColor}>to</Typography>
+            <TextField
               type="number"
+              variant="outlined"
+              size="small"
               value={end}
               onChange={(e) => setEnd(Number(e.target.value))}
+              sx={{
+                width: "100px",
+                input: { color: textColor },
+                fieldset: { borderColor: "gray" },
+              }}
             />
-          </div>
-          {generated && <h1>{number}</h1>}
-          <button onClick={getRandomNumber}>Generate!</button>
-        </div>
+          </Stack>
+          {generated && (
+            <Typography variant="h2" mt={3} color={textColor}>
+              {number}
+            </Typography>
+          )}
+          <Button
+            variant="contained"
+            onClick={getRandomNumber}
+            sx={{ mt: 2, backgroundColor: primaryColor, color: "white" }}
+          >
+            Generate
+          </Button>
+        </Box>
       )}
 
       <button
         onClick={() => navigate("/")}
-        style={{ backgroundColor: "#E32636" }}
+        style={{ backgroundColor: "#E32636", marginTop: "30px" }}
       >
         Back to Mini Apps
       </button>
-    </div>
+    </Box>
   );
 };

@@ -1,4 +1,3 @@
-import { InputText } from "../components/InputText";
 import { useEffect, useState } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
 import "../styles/spinnerwheel.css";
@@ -6,7 +5,7 @@ import { Wheel } from "../components/Wheel";
 import { useNavigate } from "react-router-dom";
 import { Bubbles } from "../components/Bubbles";
 import { getToken, decodeJWT, updateToken } from "../utils/jwtUtils";
-import { Snackbar, SnackbarContent } from "@mui/material";
+import { Snackbar, SnackbarContent, TextField } from "@mui/material";
 import { SignJWT } from "jose";
 import { updateGistWithAchievement } from "../utils/UpdateGist";
 
@@ -173,17 +172,51 @@ export const SpinnerWheel = () => {
       <h1>Spinner Wheel</h1>
       <Wheel {...{ rotation, prizes }} />
       {edit && (
-        <div>
+        <div className="prize-edit-container">
           {prizes.map((p, index) => (
-            <div key={index}>
-              <InputText
-                text="name"
-                field={p}
-                setField={(e) => editChange(e.target.value, index)}
+            <div key={index} className="prize-edit-row">
+              <TextField
+                label={`Prize ${index + 1}`}
+                value={p}
+                onChange={(e) => editChange(e.target.value, index)}
+                size="small"
+                variant="outlined"
+                sx={{
+                  flex: 1,
+                  minWidth: 120,
+                  maxWidth: 250,
+                  marginRight: 1,
+                  input: {
+                    color: "white",
+                  },
+                  label: {
+                    color: "white",
+                  },
+                  "& .MuiOutlinedInput-root": {
+                    "& fieldset": {
+                      borderColor: "white",
+                    },
+                    "&:hover fieldset": {
+                      borderColor: "white",
+                    },
+                    "&.Mui-focused fieldset": {
+                      borderColor: "white",
+                    },
+                    backgroundColor: "transparent",
+                  },
+                  "& .MuiInputLabel-root.Mui-focused": {
+                    color: "white",
+                  },
+                  "& .MuiInputBase-input::placeholder": {
+                    color: "white",
+                    opacity: 1,
+                  },
+                }}
               />
               <DeleteIcon
                 className="delete"
                 onClick={() => handleDelete(index)}
+                sx={{ cursor: "pointer", color: "#da4b57ff" }}
               />
             </div>
           ))}

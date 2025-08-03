@@ -37,29 +37,27 @@ export const Wheel = ({rotation, prizes}) => {
           transition={{ type: "tween", duration: 4, ease: "easeOut" }}
         >
             {prizes.map((prize, i) => (
-              <>
-                <g key={i}>
-                  <path
-                    d={getSectorPath(i, prizes.length)}
-                    fill={
-                      [
-                        "#5733FF",
-                        "#FF5733",
-                        "#00E629",
-                        "#9F2B68",
-                        "#C70039",
-                        "#FFC300",
-                        "#00A8E8",
-                        "#123892",
-                        "#12FC9A",
-                        "#A123C2",
-                      ][i % 10]
-                    }
-                    stroke="white"
-                    strokeWidth="2"
-                  />
-                </g>
-              </>
+              <g key={i}>
+                <path
+                  d={getSectorPath(i, prizes.length)}
+                  fill={
+                    [
+                      "#5733FF",
+                      "#FF5733",
+                      "#00E629",
+                      "#9F2B68",
+                      "#C70039",
+                      "#FFC300",
+                      "#00A8E8",
+                      "#123892",
+                      "#12FC9A",
+                      "#A123C2",
+                    ][i % 10]
+                  }
+                  stroke="white"
+                  strokeWidth="2"
+                />
+              </g>
             ))}
             {prizes.map((prize, i) => (
               <g key={i}>
