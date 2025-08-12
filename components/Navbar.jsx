@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import ListIcon from "@mui/icons-material/List";
 
 export const Navbar = () => {
-  const condenseOptions = useMediaQuery("(max-width:919px)");
+  const condenseOptions = useMediaQuery("(max-width: 1100px)");
   const navigate = useNavigate();
 
   const [anchorEl, setAnchorEl] = useState(null);

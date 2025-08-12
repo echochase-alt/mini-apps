@@ -3,7 +3,7 @@ import "../styles/common.css";
 import "../styles/bubbles.css";
 import { Bubbles } from "../components/Bubbles";
 import { useEffect, useState } from "react";
-import { Snackbar, SnackbarContent, useMediaQuery } from "@mui/material";
+import { Box, Snackbar, SnackbarContent, Typography, useMediaQuery } from "@mui/material";
 import { jwtVerify, SignJWT } from "jose";
 import { SortTiles } from "../components/SortTiles";
 import { Navbar } from "../components/Navbar";
@@ -147,6 +147,42 @@ export const HomePage = () => {
         <SortTiles sortOption={sortOption}></SortTiles>
       </div>
 
+      <Box
+        sx={{
+          mt: 6,
+          mb: 4,
+          maxWidth: 700,
+          mx: "auto",
+          px: 3,
+          py: 3,
+          backgroundColor: "rgba(255, 255, 255, 0.08)",
+          borderRadius: 3,
+          border: "1px solid rgba(255, 255, 255, 0.15)",
+          color: "#ddd",
+          fontSize: "0.9rem",
+          lineHeight: 1.5,
+          boxShadow: "0 2px 8px rgba(0,0,0,0.3)",
+        }}
+      >
+        <Typography variant="h6" sx={{ mb: 1, fontWeight: 700, color: "#eee" }}>
+          About This Site
+        </Typography>
+        <Typography paragraph>
+          This site hosts a collection of interactive mini apps and games designed for both desktop and mobile users.  
+          Each app is crafted with performance and usability in mind, aiming to deliver quick, enjoyable experiences.  
+        </Typography>
+
+        <Typography variant="h6" sx={{ mt: 3, mb: 1, fontWeight: 700, color: "#eee" }}>
+          Quick Tips
+        </Typography>
+        <ul style={{ marginTop: 0, paddingLeft: "1.2rem", color: "#ccc" }}>
+          • Use the sorting options above to customize how tiles are arranged.
+          <br />
+          • Try visiting on desktop for the best experience with animations and layout.
+          <br />
+          • Keep an eye out for new features and achievements!
+        </ul>
+      </Box>
       <SocialLinksBar />
 
       <Snackbar
