@@ -13,8 +13,6 @@ import { VisitorCounter } from "../components/VisitorCounter";
 
 export const HomePage = () => {
   const [sortOption, setSortOption] = useState("default");
-  const [showIframe, setShowIframe] = useState(true);
-  const [notificationOpen, setNotificationOpen] = useState(false);
   const [notification, setNotification] = useState(false);
 
   const isMobile = useMediaQuery("(max-width:600px)");
@@ -37,51 +35,54 @@ export const HomePage = () => {
   };
 
   const updateAchievements = async (achievement) => {
-      const token = localStorage.getItem("achievements");
-      let achievements = [];
-    
-      if (token) {
-        const payload = await decodeJWT(token);
-        if (Array.isArray(payload.achievements)) {
-          achievements = payload.achievements;
-        }
+    const token = localStorage.getItem("achievements");
+    let achievements = [];
+
+    if (token) {
+      const payload = await decodeJWT(token);
+      if (Array.isArray(payload.achievements)) {
+        achievements = payload.achievements;
       }
-    
-      const alreadyUnlocked = achievements.some((a) => a.name === achievement.name);
-    
-      if (!alreadyUnlocked) {
-        achievements.push(achievement);
-        const newToken = await encodeJWT({ achievements });
-        localStorage.setItem("achievements", newToken);
-    
-        setNotification(true);
-    
-        await updateGistWithAchievement({
-          title: "Visitor",
-          source: "First Visit",
-        });
-      }
-    };
+    }
+
+    const alreadyUnlocked = achievements.some((a) => a.name === achievement.name);
+
+    if (!alreadyUnlocked) {
+      achievements.push(achievement);
+      const newToken = await encodeJWT({ achievements });
+      localStorage.setItem("achievements", newToken);
+
+      setNotification(true);
+
+      await updateGistWithAchievement({
+        title: "Visitor",
+        source: "First Visit",
+      });
+    }
+  };
 
   useEffect(() => {
-    const checkIframeDismissed = async () => {
+    const logVisitAndCheckFirstTime = async () => {
+      try {
+        await fetch("https://analytics-six-chi.vercel.app/", {
+          method: "GET",
+        });
+      } catch (err) {
+        console.error("Analytics fetch failed:", err);
+      }
+
       const visitorToken = localStorage.getItem("visitorInfo");
-      if (visitorToken) {
-        const payload = await decodeJWT(visitorToken);
-        if (payload?.iframeDismissed) {
-          setShowIframe(false);
-        }
-      } else {
+      if (!visitorToken) {
         updateAchievements({
           name: "Visitor",
           description: "Visit the website for the first time.",
           source: "Visiting the website",
           rarity: "Common",
         });
-        
       }
     };
-    checkIframeDismissed();
+
+    logVisitAndCheckFirstTime();
   }, []);
 
   useEffect(() => {
@@ -106,63 +107,31 @@ export const HomePage = () => {
     localStorage.setItem("sortPreference", token);
   };
 
-  useEffect(() => {
-    const handleMessage = async (e) => {
-      if (e.data.closeIframe || e.data.name) {
-        const payload = {
-          iframeDismissed: true,
-          ...(e.data.name && { visitorName: e.data.name }),
-        };
-  
-        const token = await encodeJWT(payload);
-        localStorage.setItem("visitorInfo", token);
-        setShowIframe(false);
-  
-        if (e.data.name) {
-          setNotificationOpen(true);
-        }
-      }
-    };
-  
-    window.addEventListener("message", handleMessage);
-    return () => {
-      window.removeEventListener("message", handleMessage);
-    };
-  }, []);
-  
-
   return (
     <div className="center">
       <a
-        style={isMobile ? {
-            backgroundColor: "gray",
-            padding: "10px",
-            borderRadius: "20px",
-            border: "2px solid black",
-          } : undefined
+        style={
+          isMobile
+            ? {
+                backgroundColor: "gray",
+                padding: "10px",
+                borderRadius: "20px",
+                border: "2px solid black",
+              }
+            : undefined
         }
         className="feedback"
         href="/feedback"
       >
         Leave a message?
       </a>
-      {showIframe && (
-        <iframe
-          src="https://analytics-six-chi.vercel.app/"
-          className="name-form-iframe"
-          title="Name Form"
-        ></iframe>
-      )}
+
       <Bubbles colour="rgba(173, 216, 230, 0.6)" />
       <Navbar />
 
       <div className="sort-container">
         <label htmlFor="sort">Sort by: </label>
-        <select
-          id="sort"
-          value={sortOption}
-          onChange={handleSortChange} // Update sort option and store preference
-        >
+        <select id="sort" value={sortOption} onChange={handleSortChange}>
           <option value="default">Default</option>
           <option value="category">Category</option>
           <option value="alphabetical">Alphabetical</option>
@@ -177,17 +146,9 @@ export const HomePage = () => {
         </p>
         <SortTiles sortOption={sortOption}></SortTiles>
       </div>
+
       <SocialLinksBar />
-      <Snackbar
-        open={notificationOpen}
-        autoHideDuration={3000}
-        onClose={() => setNotificationOpen(false)}
-      >
-        <SnackbarContent
-          style={{ backgroundColor: "#4CAF50", opacity: "90%" }}
-          message={<span>Thank you!</span>}
-        />
-      </Snackbar>
+
       <Snackbar
         open={notification}
         autoHideDuration={3000}
@@ -196,12 +157,11 @@ export const HomePage = () => {
         <SnackbarContent
           style={{ backgroundColor: "#fcc200", opacity: "90%" }}
           message={
-            <span>
-              You've unlocked a new achievement: Visitor!
-            </span>
+            <span>You've unlocked a new achievement: Visitor!</span>
           }
         />
       </Snackbar>
+
       <br />
       <VisitorCounter />
     </div>

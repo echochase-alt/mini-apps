@@ -25,7 +25,14 @@ export const Navbar = () => {
       {condenseOptions ? (
         <>
           <ListIcon
-            sx={{ height: "35px", width: "35px", position: "relative", right: "25px", cursor: "pointer", color: "white" }}
+            sx={{
+              height: "35px",
+              width: "35px",
+              position: "relative",
+              right: "25px",
+              cursor: "pointer",
+              color: "white"
+            }}
             onClick={handleMenuOpen}
           />
           <Menu
@@ -43,51 +50,13 @@ export const Navbar = () => {
               },
             }}
           >
-            <MenuItem
-              onClick={() => handleMenuClose("/socials")}
-              sx={{
-                "&:hover": {
-                  opacity: 0.7,
-                  transform: "scale(0.95)",
-                },
-                transition: "all 0.2s ease",
-              }}
-            >
-              Socials
-            </MenuItem>
-            <MenuItem
-              onClick={() => handleMenuClose("/achievements")}
-              sx={{
-                "&:hover": {
-                  opacity: 0.7,
-                  transform: "scale(0.95)",
-                },
-                transition: "all 0.2s ease",
-              }}
-            >
-              Achievements
-            </MenuItem>
-            <MenuItem
-              onClick={() => handleMenuClose("/feedback")}
-              sx={{
-                "&:hover": {
-                  opacity: 0.7,
-                  transform: "scale(0.95)",
-                },
-                transition: "all 0.2s ease",
-              }}
-            >
-              Feedback
-            </MenuItem>
+            <MenuItem onClick={() => handleMenuClose("/socials")} sx={menuItemStyle}>Socials</MenuItem>
+            <MenuItem onClick={() => handleMenuClose("/achievements")} sx={menuItemStyle}>Achievements</MenuItem>
+            <MenuItem onClick={() => handleMenuClose("/wall-of-fame")} sx={menuItemStyle}>Wall of Fame</MenuItem>
+            <MenuItem onClick={() => handleMenuClose("/feedback")} sx={menuItemStyle}>Feedback</MenuItem>
             <MenuItem
               onClick={() => window.open("https://www.buymeacoffee.com/echocodez", "_blank")}
-              sx={{
-                "&:hover": {
-                  opacity: 0.7,
-                  transform: "scale(0.95)",
-                },
-                transition: "all 0.2s ease",
-              }}
+              sx={menuItemStyle}
             >
               Buy Me a Coffee
             </MenuItem>
@@ -97,6 +66,7 @@ export const Navbar = () => {
         <div className="tile-titles">
           <h2 className="tile-title" onClick={() => navigate("/achievements")}>Achievements</h2>
           <h2 className="tile-title" onClick={() => navigate("/feedback")}>Feedback</h2>
+          <h2 className="tile-title" onClick={() => navigate("/wall-of-fame")}>Wall of Fame</h2>
           <h2 className="tile-title glow" onClick={() => navigate("/socials")}>Socials</h2>
           <a
             href="https://www.buymeacoffee.com/echocodez"
@@ -110,4 +80,12 @@ export const Navbar = () => {
       )}
     </div>
   );
+};
+
+const menuItemStyle = {
+  "&:hover": {
+    opacity: 0.7,
+    transform: "scale(0.95)",
+  },
+  transition: "all 0.2s ease",
 };

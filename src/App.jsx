@@ -22,6 +22,7 @@ import { Achievements } from "../screens/Achievements";
 import { CardGenerator } from "../screens/CardGenerator";
 import { SocialPromo } from "../screens/SocialPromo";
 import "./App.css";
+import { WallOfFame } from "../components/WallOfFame";
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
         <Route path="/feedback" element={<Feedback />} />
         <Route path="/achievements" element={<Achievements />} />
         <Route path="/card-generator" element={<CardGenerator />} />
+        <Route path="/wall-of-fame" element={<WallOfFame />} />
         <Route path="/socials" element={<SocialPromo />} />
       </Routes>
     </BrowserRouter>
