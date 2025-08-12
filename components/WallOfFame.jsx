@@ -32,6 +32,9 @@ export const WallOfFame = () => {
     "@janmevius",
     "@rmaanomaly",
     "Sneaky Golem in the Pocket",
+    "@tinklewad",
+    "@cpu_neppu",
+    "@inevitableikari",
   ];
 
   const goldGlow = keyframes`
