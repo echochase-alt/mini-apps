@@ -26,6 +26,16 @@ export const WallOfFame = () => {
     "@pandamonium124",
   ];
 
+  const friendsOfPage = [
+    "@minifiguremerc",
+  ];
+
+  const friendlyGlow = keyframes`
+    0% { text-shadow: 0 0 6px rgba(255, 182, 193, 0.7), 0 0 12px rgba(255, 182, 193, 0.5); }
+    50% { text-shadow: 0 0 15px rgba(255, 192, 203, 1), 0 0 30px rgba(255, 192, 203, 0.8); }
+    100% { text-shadow: 0 0 6px rgba(255, 182, 193, 0.7), 0 0 12px rgba(255, 182, 193, 0.5); }
+  `;
+
   const pastBosses = [
     "@liauo09",
     "LeBron James",
@@ -217,7 +227,84 @@ export const WallOfFame = () => {
           </Paper>
         </Box>
 
-        {/* Champions Section */}
+        <Box
+          sx={{
+            backgroundColor: "#f5f0e6",
+            color: "#5b4636",
+            borderRadius: "20px",
+            border: "2px solid #e6d5b8",
+            p: 4,
+            fontFamily: "'Quicksand', cursive",
+          }}
+        >
+          <Typography
+            variant="h3"
+            sx={{
+              fontWeight: 800,
+              mb: 2,
+              textAlign: "center",
+              background: "linear-gradient(90deg, #905618ff, #b57c12)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              letterSpacing: 2,
+            }}
+          >
+            Friends of the Page
+          </Typography>
+          <p>
+            People I'm a huge fan of and have had the pleasure of working with!
+          </p>
+          
+          <Paper
+            sx={{
+              backgroundColor: "#e6d5b8", // Golden sand beige
+              borderRadius: 3,
+              p: 4,
+              mx: "auto",
+              boxShadow: "0 0 15px rgba(230, 213, 184, 0.7)",
+            }}
+            elevation={8}
+          >
+            <Grid
+              container
+              spacing={3}
+              sx={{
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              {friendsOfPage.map((friend, index) => (
+                <Grid
+                  item
+                  xs={12}
+                  sm={6}
+                  md={4}
+                  key={index}
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                  }}
+                >
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      color: "#a57255ff",
+                      fontWeight: 700,
+                      animation: `${friendlyGlow} 3s ease-in-out infinite`,
+                      minHeight: "40px",
+                      textShadow: "0 0 8px #f2d39bff",
+                    }}
+                  >
+                    {friend}
+                  </Typography>
+                </Grid>
+              ))}
+            </Grid>
+          </Paper>
+        </Box>
+            
+
         <Box
           sx={{
             backgroundColor: "#001f2d",
