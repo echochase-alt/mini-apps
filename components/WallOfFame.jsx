@@ -28,6 +28,7 @@ export const WallOfFame = () => {
 
   const friendsOfPage = [
     "@minifiguremerc",
+    "@fight.or.unfollow",
   ];
 
   const friendlyGlow = keyframes`
