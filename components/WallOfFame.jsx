@@ -57,6 +57,7 @@ export const WallOfFame = () => {
     "@t4omos",
     "@tom_de_pablo",
     "@michael_hoff_man",
+    "@9lucky.m3",
   ];
 
   const goldGlow = keyframes`
