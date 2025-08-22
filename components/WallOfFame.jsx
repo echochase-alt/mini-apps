@@ -52,6 +52,11 @@ export const WallOfFame = () => {
     "@hydr.o18",
     "@xitozvenom_bd",
     "@splatymj",
+    "@japneetsingh_17",
+    "@legendaryfray",
+    "@t4omos",
+    "@tom_de_pablo",
+    "@michael_hoff_man",
   ];
 
   const goldGlow = keyframes`
