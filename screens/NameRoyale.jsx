@@ -41,6 +41,7 @@ const SAMPLE_NAMES = [
   "Ada",
   "Ronaldo",
   "John",
+  "peachpie320",
   "Petacekfetacek",
   "Hungry Cat",
   "Smelly Cat",

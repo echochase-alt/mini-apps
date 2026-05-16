@@ -702,3 +702,162 @@
     padding: 12px 16px;
   }
 }
+
+/* Finishing touches: layout-only overrides. Keep copy/text in JSX untouched. */
+.name-royale {
+  --site-navbar-height: 80px;
+}
+
+.name-royale-card {
+  align-items: stretch;
+}
+
+.name-royale-start {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  text-align: center;
+  line-height: 1;
+}
+
+@media (max-width: 820px) {
+  .name-royale-setup {
+    padding-top: calc(var(--site-navbar-height) + 18px);
+    grid-template-rows: min-content minmax(0, 1fr);
+  }
+
+  .name-royale-hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 0;
+  }
+
+  .name-royale-hero h1 {
+    margin-top: 0;
+  }
+
+  .name-royale-card {
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .name-royale-card textarea {
+    flex: 1 1 auto;
+    min-height: 82px;
+  }
+
+  .name-royale-start {
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 560px) {
+  .name-royale-setup {
+    padding-top: calc(var(--site-navbar-height) + 16px);
+  }
+
+  .name-royale-hero h1 {
+    font-size: clamp(28px, 9.5vw, 42px);
+    line-height: 0.92;
+  }
+
+  .name-royale-card {
+    padding: 13px;
+  }
+
+  .name-royale-card-header {
+    margin-bottom: 8px;
+  }
+
+  .name-royale-card textarea {
+    min-height: 76px;
+  }
+
+  .name-royale-meta-row,
+  .name-royale-clear,
+  .name-royale-preview,
+  .name-royale-rules,
+  .name-royale-start {
+    margin-top: 8px;
+  }
+}
+
+@media (max-height: 700px) and (max-width: 820px) {
+  .name-royale-setup {
+    padding-top: calc(var(--site-navbar-height) + 10px);
+  }
+
+  .name-royale-hero h1 {
+    font-size: clamp(26px, 8.5vw, 38px);
+  }
+
+  .name-royale-card-header {
+    margin-bottom: 6px;
+  }
+
+  .name-royale-card h2 {
+    font-size: 21px;
+  }
+
+  .name-royale-card p,
+  .name-royale-rules span {
+    display: none;
+  }
+
+  .name-royale-card textarea {
+    min-height: 68px;
+    padding: 11px;
+  }
+
+  .name-royale-rules div {
+    padding: 7px 8px;
+  }
+
+  .name-royale-rules strong {
+    font-size: 13px;
+  }
+
+  .name-royale-start {
+    min-height: 40px;
+    padding: 10px 16px;
+  }
+}
+
+@media (max-width: 560px) {
+  .name-royale-hud--top > div:first-child,
+  .name-royale-stat-card {
+    background: rgba(5, 8, 18, 0.28);
+    border-color: rgba(255, 255, 255, 0.075);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+    backdrop-filter: blur(6px);
+  }
+
+  .name-royale-hud span {
+    color: rgba(255, 255, 255, 0.52);
+  }
+
+  .name-royale-hud strong {
+    color: rgba(255, 255, 255, 0.82);
+  }
+}
+
+@media (max-width: 420px) {
+  .name-royale-hud--top {
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    gap: 6px;
+  }
+
+  .name-royale-hud--top > div:first-child,
+  .name-royale-stat-card {
+    padding: 8px 9px;
+    border-radius: 14px;
+  }
+
+  .name-royale-stat-card {
+    min-width: 0;
+  }
+}
