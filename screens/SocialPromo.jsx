@@ -92,7 +92,7 @@ export const SocialPromo = () => {
         <Button
           variant="outlined"
           sx={{ mt: 3, fontWeight: 600, color: "#c82333", border: "0.5px solid #c82333" }}
-          onClick={() => navigate("/")}
+          onClick={() => navigate("/mini-apps")}
         >
           Back to Mini Apps
         </Button>

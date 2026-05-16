@@ -68,7 +68,7 @@ export const Achievements = () => {
       )}
       <br />
       <button
-        onClick={() => navigate("/")}
+        onClick={() => navigate("/mini-apps")}
         style={{ backgroundColor: "#E32636", marginTop: "10px" }}
       >
         Back to Mini Apps

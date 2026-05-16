@@ -168,7 +168,7 @@ export const HomePage = () => {
           About This Site
         </Typography>
         <Typography paragraph>
-          This site hosts a collection of interactive mini apps and games designed for both desktop and mobile users.  
+          echocodez.com hosts a collection of interactive mini apps and games designed for both desktop and mobile users.  
           Each app is crafted with performance and usability in mind, aiming to deliver quick, enjoyable experiences.  
         </Typography>
 

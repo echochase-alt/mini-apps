@@ -35,7 +35,7 @@ export const Matchups = () => {
           <Brackets {...{ players, name, randomise, presetWinners }} />
           <div className="buttons">
             <button
-              onClick={() => navigate("/")}
+              onClick={() => navigate("/mini-apps")}
               style={{ backgroundColor: "#E32636" }}
             >
               Back to Mini Apps

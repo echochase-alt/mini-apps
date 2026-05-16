@@ -12,7 +12,7 @@ export const Feedback = () => {
       <h3>Feel free to suggest any features or upgrades regarding this website!</h3>
       <iframe className="feedback-frame" src="https://analytics-six-chi.vercel.app/review/" />
       <button
-        onClick={() => navigate("/")}
+        onClick={() => navigate("/mini-apps")}
         style={{ backgroundColor: "#E32636", marginTop: "10px" }}
       >
         Back to Mini Apps

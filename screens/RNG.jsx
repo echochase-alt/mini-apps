@@ -276,7 +276,7 @@ export const RNG = () => {
       )}
 
       <button
-        onClick={() => navigate("/")}
+        onClick={() => navigate("/mini-apps")}
         style={{ backgroundColor: "#E32636", marginTop: "30px" }}
       >
         Back to Mini Apps

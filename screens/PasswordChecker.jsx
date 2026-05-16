@@ -196,7 +196,7 @@ export const PasswordChecker = () => {
         guarantee absolute security of your account.
       </p>
       <button
-        onClick={() => navigate("/")}
+        onClick={() => navigate("/mini-apps")}
         style={{
           backgroundColor: "#E32636",
         }}

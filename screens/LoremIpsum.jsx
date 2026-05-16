@@ -85,7 +85,7 @@ export const LoremIpsumGenerator = () => {
       {copied && <div className="toast">Copied!</div>}
       <br />
       <button
-        onClick={() => navigate("/")}
+        onClick={() => navigate("/mini-apps")}
         style={{ backgroundColor: "#E32636" }}
       >
         Back to Mini Apps

@@ -369,3 +369,41 @@
         position: relative;
     }
 }
+
+
+.name-royale-logo {
+    position: relative;
+    width: 190px;
+    height: 150px;
+    border-radius: 24px;
+    background:
+      radial-gradient(circle at 32% 24%, rgba(255, 255, 255, 0.38), transparent 18%),
+      linear-gradient(135deg, #57829a, #6ca4c4);
+    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.28);
+}
+
+.name-royale-logo::before,
+.name-royale-logo::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    border-radius: 999px;
+    transform: translateX(-50%);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+}
+
+.name-royale-logo::before {
+    top: 44px;
+    width: 138px;
+    height: 28px;
+    border: 3px solid #ffc6ff;
+    background: rgba(255, 255, 255, 0.16);
+}
+
+.name-royale-logo::after {
+    top: 84px;
+    width: 86px;
+    height: 26px;
+    border: 3px solid #caffbf;
+    background: rgba(255, 255, 255, 0.14);
+}

@@ -398,7 +398,7 @@ export const Operations = () => {
   };
 
   const confirmBack = () => {
-    navigate("/");
+    navigate("/mini-apps");
   };
 
   const useDuplicator = () => {

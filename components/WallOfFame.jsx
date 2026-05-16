@@ -498,7 +498,7 @@ export const WallOfFame = () => {
 
         <Button
           variant="outlined"
-          onClick={() => navigate("/")}
+          onClick={() => navigate("/mini-apps")}
           sx={{
             borderColor: "#E32636",
             color: "#E32636",

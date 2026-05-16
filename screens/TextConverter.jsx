@@ -69,7 +69,7 @@ export const TextConverter = () => {
       <br/>
       <br/>
       <div>
-        <button onClick={() => navigate("/")} style={{ backgroundColor: "#E32636" }}>Back to Mini Apps</button>
+        <button onClick={() => navigate("/mini-apps")} style={{ backgroundColor: "#E32636" }}>Back to Mini Apps</button>
       </div>
     </>
   )

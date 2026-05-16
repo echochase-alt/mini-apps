@@ -1,0 +1,704 @@
+.name-royale {
+  position: fixed;
+  inset: 0;
+  min-width: 320px;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
+  overflow: hidden;
+  color: white;
+  background:
+    radial-gradient(circle at 24% 18%, rgba(157, 189, 230, 0.26), transparent 32%),
+    radial-gradient(circle at 74% 80%, rgba(179, 156, 232, 0.18), transparent 30%),
+    linear-gradient(135deg, #0a1020, #162237 52%, #060815);
+  font-family: Inter, Quicksand, Arial, Helvetica, sans-serif;
+}
+
+.name-royale *,
+.name-royale *::before,
+.name-royale *::after {
+  box-sizing: border-box;
+}
+
+.name-royale::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: radial-gradient(circle at center, black, transparent 78%);
+  pointer-events: none;
+}
+
+.name-royale-setup {
+  position: relative;
+  z-index: 1;
+  width: min(1120px, calc(100vw - 28px));
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
+  margin: 0 auto;
+  padding: clamp(76px, 10vh, 104px) 0 clamp(12px, 2.4vh, 24px);
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(320px, 1.18fr);
+  gap: clamp(14px, 3vw, 36px);
+  align-items: center;
+  overflow: hidden;
+}
+
+.name-royale-hero {
+  min-width: 0;
+  text-align: left;
+}
+
+.name-royale-home {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 34px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  padding: 10px 16px;
+  color: rgba(255, 255, 255, 0.84);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(16px);
+}
+
+.name-royale-home:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.name-royale-eyebrow {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: rgba(210, 228, 255, 0.72);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.name-royale-hero h1 {
+  margin: 0;
+  max-width: 620px;
+  color: white;
+  font-size: clamp(42px, 8vw, 94px);
+  line-height: 0.86;
+  letter-spacing: -0.085em;
+  text-shadow: 0 22px 80px rgba(0, 0, 0, 0.48);
+}
+
+.name-royale-hero p {
+  max-width: 520px;
+  margin: 16px 0 0;
+  color: rgba(235, 242, 255, 0.76);
+  font-size: clamp(14px, 1.7vw, 17px);
+  line-height: 1.52;
+}
+
+.name-royale-card {
+  display: flex;
+  min-height: 0;
+  max-height: calc(100vh - clamp(88px, 12vh, 128px));
+  max-height: calc(100dvh - clamp(88px, 12vh, 128px));
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 30px;
+  padding: clamp(14px, 2.2vw, 24px);
+  background: rgba(8, 13, 28, 0.72);
+  box-shadow: 0 34px 100px rgba(0, 0, 0, 0.42);
+  backdrop-filter: blur(22px);
+}
+
+.name-royale-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.name-royale-card h2 {
+  margin: 0;
+  color: white;
+  font-size: clamp(23px, 3vw, 34px);
+  letter-spacing: -0.045em;
+}
+
+.name-royale-card p {
+  margin: 4px 0 0;
+  color: rgba(235, 242, 255, 0.66);
+}
+
+.name-royale-start,
+.name-royale-controls button,
+.name-royale-winner-actions button {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  color: white;
+  background: linear-gradient(135deg, rgba(87, 130, 154, 0.95), rgba(108, 164, 196, 0.84));
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.28);
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.18s ease, border-color 0.18s ease, filter 0.18s ease;
+}
+
+.name-royale-start:hover,
+.name-royale-controls button:hover,
+.name-royale-winner-actions button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+  border-color: rgba(255, 255, 255, 0.34);
+}
+
+
+.name-royale-card textarea {
+  display: block;
+  width: 100%;
+  flex: 1 1 auto;
+  min-height: 96px;
+  height: clamp(116px, 25vh, 270px);
+  max-height: 32vh;
+  max-height: 32dvh;
+  resize: none;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 22px;
+  padding: 18px;
+  color: rgba(255, 255, 255, 0.94);
+  background: rgba(4, 8, 19, 0.62);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  outline: none;
+  font: 700 16px/1.55 Inter, Quicksand, Arial, Helvetica, sans-serif;
+}
+
+.name-royale-card textarea:focus {
+  border-color: rgba(160, 196, 255, 0.55);
+  box-shadow: 0 0 0 4px rgba(160, 196, 255, 0.13);
+}
+
+.name-royale-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin: 9px 2px 0;
+  color: rgba(235, 242, 255, 0.62);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.name-royale-error {
+  margin-top: 12px;
+  border: 1px solid rgba(255, 107, 107, 0.35);
+  border-radius: 16px;
+  padding: 10px 12px;
+  color: #ffd8d8;
+  background: rgba(255, 90, 90, 0.12);
+  font-weight: 700;
+}
+
+.name-royale-preview {
+  display: flex;
+  flex: 0 1 auto;
+  flex-wrap: wrap;
+  gap: 7px;
+  min-height: 0;
+  max-height: 78px;
+  margin-top: 12px;
+  overflow: hidden;
+}
+
+.name-royale-preview span,
+.name-royale-preview em {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  border: 1px solid var(--chip-colour, #a0c4ff);
+  border-radius: 999px;
+  padding: 7px 10px;
+  color: white;
+  background: rgba(255, 255, 255, 0.075);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.16);
+  font-size: 12px;
+  font-weight: 900;
+  overflow-wrap: anywhere;
+}
+
+.name-royale-preview em {
+  border-color: rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.74);
+  background: rgba(255, 255, 255, 0.08);
+  font-style: normal;
+}
+
+.name-royale-rules {
+  display: flex;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.name-royale-rules div {
+  min-width: 0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.name-royale-rules strong,
+.name-royale-rules span {
+  display: block;
+}
+
+.name-royale-rules strong {
+  color: white;
+  font-size: 15px;
+}
+
+.name-royale-rules span {
+  margin-top: 3px;
+  color: rgba(235, 242, 255, 0.62);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.name-royale-start {
+  width: 100%;
+  flex: 0 0 auto;
+  margin-top: 12px;
+  padding: 14px 18px;
+  font-size: 17px;
+}
+
+.name-royale-start:disabled {
+  cursor: not-allowed;
+  opacity: 0.48;
+  transform: none;
+  filter: grayscale(0.6);
+}
+
+.name-royale-stage {
+  position: absolute;
+  inset: 0;
+}
+
+.name-royale-arena-shell {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(100vw, calc(100vh * 0.66));
+  height: min(100vh, calc(100vw * 1.52));
+  min-width: 320px;
+  min-height: 420px;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  border-radius: clamp(0px, 2.8vw, 30px);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.12),
+    0 26px 90px rgba(0, 0, 0, 0.58);
+}
+
+.name-royale-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.name-royale-hud {
+  position: fixed;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.name-royale-hud--top {
+  top: max(14px, calc((100vh - min(100vh, calc(100vw * 1.52))) / 2 + 16px));
+  left: max(14px, calc((100vw - min(100vw, calc(100vh * 0.66))) / 2 + 16px));
+  right: max(14px, calc((100vw - min(100vw, calc(100vh * 0.66))) / 2 + 16px));
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.name-royale-hud--top > div:first-child {
+  min-width: 0;
+  padding: 12px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 18px;
+  background: rgba(5, 8, 18, 0.62);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(14px);
+}
+
+.name-royale-hud span {
+  display: block;
+  color: rgba(255, 255, 255, 0.66);
+  font-size: clamp(9px, 2.4vw, 12px);
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.name-royale-hud strong {
+  display: block;
+  margin-top: 4px;
+  color: white;
+  font-size: clamp(18px, 4vw, 32px);
+  line-height: 0.95;
+}
+
+.name-royale-stat-card {
+  min-width: clamp(72px, 18vw, 105px);
+  padding: 11px 13px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 18px;
+  background: rgba(5, 8, 18, 0.62);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(14px);
+  text-align: right;
+}
+
+.name-royale-controls {
+  position: fixed;
+  left: 50%;
+  bottom: max(14px, calc((100vh - min(100vh, calc(100vw * 1.52))) / 2 + 16px));
+  z-index: 5;
+  display: flex;
+  gap: 10px;
+  transform: translateX(-50%);
+}
+
+.name-royale-controls button {
+  padding: 10px 14px;
+  font-size: 13px;
+}
+
+.name-royale-winner-panel {
+  position: fixed;
+  left: 50%;
+  bottom: max(18px, calc((100vh - min(100vh, calc(100vw * 1.52))) / 2 + 24px));
+  z-index: 6;
+  width: min(calc(100vw - 28px), 390px);
+  transform: translateX(-50%);
+  border: 1px solid rgba(255, 220, 82, 0.36);
+  border-radius: 26px;
+  padding: 18px 22px;
+  background: rgba(5, 8, 18, 0.82);
+  box-shadow: 0 22px 80px rgba(0, 0, 0, 0.62), 0 0 50px rgba(255, 220, 82, 0.14);
+  backdrop-filter: blur(18px);
+  text-align: center;
+  animation: winnerPanelIn 0.5s ease both;
+}
+
+.name-royale-winner-panel span {
+  display: block;
+  margin-bottom: 6px;
+  color: rgba(255, 220, 82, 0.76);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.name-royale-winner-panel strong {
+  display: block;
+  color: white;
+  font-size: clamp(28px, 8vw, 48px);
+  line-height: 1;
+  overflow-wrap: anywhere;
+}
+
+.name-royale-winner-panel p {
+  margin: 8px 0 0;
+  color: rgba(235, 242, 255, 0.7);
+  font-weight: 700;
+}
+
+@keyframes winnerPanelIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(12px) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 820px) {
+  .name-royale-setup {
+    grid-template-columns: 1fr;
+    align-items: start;
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .name-royale-home {
+    margin-bottom: 12px;
+  }
+
+  .name-royale-hero h1,
+  .name-royale-hero p {
+    max-width: none;
+  }
+
+  .name-royale-card-header {
+    flex-direction: column;
+  }
+
+  .name-royale-rules {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .name-royale-card {
+    border-radius: 24px;
+  }
+
+  .name-royale-rules {
+    grid-template-columns: 1fr;
+  }
+
+  .name-royale-meta-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .name-royale-hud--top {
+    flex-wrap: wrap;
+  }
+
+  .name-royale-hud--top > div:first-child {
+    flex: 1 1 100%;
+  }
+
+  .name-royale-stat-card {
+    flex: 1 1 0;
+  }
+}
+
+.name-royale .navbar {
+  z-index: 20;
+}
+
+.name-royale .title {
+  white-space: nowrap;
+}
+
+.name-royale-clear {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  padding: 9px 14px;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  font: 800 13px/1 Inter, Quicksand, Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.name-royale-clear:hover:not(:disabled) {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.34);
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.name-royale-clear:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+
+.name-royale-winner-actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.name-royale-winner-actions button {
+  min-width: 0;
+  padding: 10px 12px;
+  font-size: 12px;
+  line-height: 1.15;
+  white-space: normal;
+}
+
+@media (max-height: 760px) and (min-width: 821px) {
+  .name-royale-setup {
+    padding-top: 72px;
+    padding-bottom: 10px;
+  }
+
+  .name-royale-hero h1 {
+    font-size: clamp(36px, 6.5vw, 70px);
+  }
+
+  .name-royale-hero p {
+    margin-top: 10px;
+    font-size: 13px;
+    line-height: 1.38;
+  }
+
+  .name-royale-card {
+    max-height: calc(100vh - 86px);
+    max-height: calc(100dvh - 86px);
+  }
+
+  .name-royale-card-header {
+    margin-bottom: 8px;
+  }
+
+  .name-royale-card textarea {
+    height: clamp(96px, 22vh, 178px);
+    max-height: 26vh;
+    max-height: 26dvh;
+    padding: 14px;
+  }
+
+  .name-royale-preview {
+    max-height: 42px;
+  }
+
+  .name-royale-rules div {
+    padding: 8px;
+  }
+
+  .name-royale-rules span {
+    display: none;
+  }
+}
+
+@media (max-height: 640px) and (min-width: 821px) {
+  .name-royale-hero p,
+  .name-royale-preview {
+    display: none;
+  }
+
+  .name-royale-card textarea {
+    height: clamp(84px, 20vh, 138px);
+    max-height: 23vh;
+    max-height: 23dvh;
+  }
+}
+
+@media (max-width: 820px) {
+  .name-royale-setup {
+    height: 100vh;
+    height: 100dvh;
+    grid-template-rows: auto minmax(0, 1fr);
+    align-items: stretch;
+    padding-top: 76px;
+    padding-bottom: 10px;
+    gap: 10px;
+  }
+
+  .name-royale-hero {
+    text-align: center;
+  }
+
+  .name-royale-hero h1 {
+    font-size: clamp(34px, 12vw, 58px);
+    line-height: 0.9;
+  }
+
+  .name-royale-hero p {
+    max-width: 640px;
+    margin: 10px auto 0;
+    font-size: 13px;
+    line-height: 1.34;
+  }
+
+  .name-royale-card {
+    max-height: none;
+    min-height: 0;
+  }
+
+  .name-royale-card textarea {
+    height: auto;
+    max-height: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .name-royale-setup {
+    width: min(100vw - 18px, 560px);
+    padding-top: 70px;
+    gap: 8px;
+  }
+
+  .name-royale-hero p {
+    display: none;
+  }
+
+  .name-royale-card h2 {
+    font-size: 23px;
+  }
+
+  .name-royale-card p {
+    font-size: 12px;
+  }
+
+  .name-royale-card textarea {
+    min-height: 92px;
+    font-size: 14px;
+    padding: 13px;
+  }
+
+  .name-royale-preview {
+    max-height: 38px;
+  }
+
+  .name-royale-rules {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .name-royale-rules span {
+    display: none;
+  }
+
+  .name-royale-winner-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-height: 700px) and (max-width: 820px) {
+  .name-royale-setup {
+    padding-top: 64px;
+  }
+
+  .name-royale-hero h1 {
+    font-size: clamp(30px, 10vw, 46px);
+  }
+
+  .name-royale-card-header,
+  .name-royale-preview {
+    margin-bottom: 6px;
+  }
+
+  .name-royale-preview {
+    display: none;
+  }
+
+  .name-royale-rules div {
+    padding: 8px;
+  }
+
+  .name-royale-start {
+    padding: 12px 16px;
+  }
+}

@@ -189,7 +189,7 @@ export const TicTacToe = () => {
       </div>
       <button onClick={handleReset}>Reset</button>
       <button
-        onClick={() => navigate("/")}
+        onClick={() => navigate("/mini-apps")}
         style={{ backgroundColor: "#E32636" }}
       >
         Back to Mini Apps

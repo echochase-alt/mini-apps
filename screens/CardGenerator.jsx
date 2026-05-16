@@ -247,7 +247,7 @@ export const CardGenerator = () => {
       )}
       <p>Card images sourced from <a href="https://tekeye.uk/playing_cards/svg-playing-cards">Tekeye</a> with permission.</p>
       <button
-        onClick={() => navigate("/")}
+        onClick={() => navigate("/mini-apps")}
         style={{ backgroundColor: "#E32636" }}
       >
         Back to Mini Apps

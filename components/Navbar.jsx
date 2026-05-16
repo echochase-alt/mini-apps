@@ -1,10 +1,11 @@
 import { useState } from "react";
+import "../styles/homepage.css";
 import { useMediaQuery, Menu, MenuItem } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import ListIcon from "@mui/icons-material/List";
 
 export const Navbar = () => {
-  const condenseOptions = useMediaQuery("(max-width: 1100px)");
+  const condenseOptions = useMediaQuery("(max-width: 1240px)");
   const navigate = useNavigate();
 
   const [anchorEl, setAnchorEl] = useState(null);
@@ -21,7 +22,7 @@ export const Navbar = () => {
 
   return (
     <div className="navbar">
-      <h1 className="title" onClick={() => navigate("/")}>Echo's Mini Apps</h1>
+      <h1 className="title" onClick={() => navigate("/")}>echocodez.com</h1>
       {condenseOptions ? (
         <>
           <ListIcon
@@ -50,6 +51,8 @@ export const Navbar = () => {
               },
             }}
           >
+            <MenuItem onClick={() => handleMenuClose("/")} sx={menuItemStyle}>Name Battle</MenuItem>
+            <MenuItem onClick={() => handleMenuClose("/mini-apps")} sx={menuItemStyle}>Mini Apps</MenuItem>
             <MenuItem onClick={() => handleMenuClose("/socials")} sx={menuItemStyle}>Socials</MenuItem>
             <MenuItem onClick={() => handleMenuClose("/achievements")} sx={menuItemStyle}>Achievements</MenuItem>
             <MenuItem onClick={() => handleMenuClose("/wall-of-fame")} sx={menuItemStyle}>Wall of Fame</MenuItem>
@@ -64,6 +67,8 @@ export const Navbar = () => {
         </>
       ) : (
         <div className="tile-titles">
+          <h2 className="tile-title" onClick={() => navigate("/")}>Name Battle</h2>
+          <h2 className="tile-title" onClick={() => navigate("/mini-apps")}>Mini Apps</h2>
           <h2 className="tile-title" onClick={() => navigate("/achievements")}>Achievements</h2>
           <h2 className="tile-title" onClick={() => navigate("/feedback")}>Feedback</h2>
           <h2 className="tile-title" onClick={() => navigate("/wall-of-fame")}>Wall of Fame</h2>

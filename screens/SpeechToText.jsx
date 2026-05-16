@@ -81,7 +81,7 @@ export const SpeechToText = () => {
         )
       </h3>
       <button
-        onClick={() => navigate("/")}
+        onClick={() => navigate("/mini-apps")}
         style={{ backgroundColor: "#E32636" }}
         className="menu-button"
       >

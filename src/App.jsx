@@ -21,6 +21,7 @@ import { Feedback } from "../screens/Feedback";
 import { Achievements } from "../screens/Achievements";
 import { CardGenerator } from "../screens/CardGenerator";
 import { SocialPromo } from "../screens/SocialPromo";
+import { NameRoyale } from "../screens/NameRoyale";
 import "./App.css";
 import { WallOfFame } from "../components/WallOfFame";
 
@@ -29,7 +30,8 @@ function App() {
     <BrowserRouter>
       <Analytics />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<NameRoyale />} />
+        <Route path="/mini-apps" element={<HomePage />} />
         <Route path="/scoreboard" element={<Scoreboard />} />
         <Route path="/spinner-wheel" element={<SpinnerWheel />} />
         <Route path="/base64" element={<Base64 />} />
@@ -51,6 +53,8 @@ function App() {
         <Route path="/card-generator" element={<CardGenerator />} />
         <Route path="/wall-of-fame" element={<WallOfFame />} />
         <Route path="/socials" element={<SocialPromo />} />
+        <Route path="/name-battle" element={<NameRoyale />} />
+        <Route path="/name-royale" element={<NameRoyale />} />
       </Routes>
     </BrowserRouter>
   );
